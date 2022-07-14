@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  connection: local
+  became: true
+
+  tasks:
+  - name: install packages
+    package:
+      name:
+        - htop
+        - vim
+        - vim-nox
+        - mc
