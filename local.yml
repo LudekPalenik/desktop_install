@@ -2,12 +2,31 @@
 - hosts: localhost
   connection: local
   become: true
+  roles: 
 
   tasks:
   - name: install packages
     package:
       name:
+        - audacity
+        - curl
+        - dnsutils
+        - git
+        - gstreamer1.0-libav
+        - gstreamer1.0-plugins-bad
         - htop
+        - kodi
+        - neofetch
+        - openvpn
+        - python3-psutil
+        - remmina
+        - steam
+        - thunderbird
+        - tilix
+        - tig
+        - tmate
+        - wget
         - vim
+        - vlc
         - vim-nox
-        - mc
+        - wine
