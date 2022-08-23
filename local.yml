@@ -3,7 +3,7 @@
   connection: local
   become: true
   roles: 
-
+    - spotify
   tasks:
   - name: install packages
     package:

@@ -1,0 +1,16 @@
+---
+spotify_client_version: ''
+
+spotify_client_build: stable
+
+spotify_client_download_dir: "{{ x_ansible_download_dir | default(ansible_env.HOME + '/.ansible/tmp/downloads') }}"
+
+spotify_client_gpg_key: 'https://download.spotify.com'
+
+spotify_client_mirror: 'http://repository.spotify.com'
+
+spotify_client_gpgcheck: yes
+
+spotify_client_skip_add_repo: no
+
+users: []

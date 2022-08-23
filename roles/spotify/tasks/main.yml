@@ -1,0 +1,20 @@
+---
+- name: install key (apt)
+  become: yes
+  apt_key:
+    url: '{{ spotify_client_gpg_key }}/debian/pubkey_5E3C45D7B312C643.gpg'
+    state: present
+
+- name: install spotify-client repo (apt)
+  become: yes
+  apt_repository:
+    repo: 'deb [arch=amd64{{ spotify_client_gpgcheck | ternary("", " trusted=yes") }}] {{ spotify_client_mirror }} stable non-free'
+    filename: spotify-client
+    state: present
+  when: not spotify_client_skip_add_repo
+
+- name: install spotify-client (apt)
+  become: yes
+  apt:
+    name: "spotify-client"
+    state: present
