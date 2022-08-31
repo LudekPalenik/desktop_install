@@ -4,6 +4,7 @@
   become: true
   roles:
     - google-chrome
+    - signal-desktop
     - spotify
   tasks:
   - name: install packages

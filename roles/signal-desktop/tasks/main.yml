@@ -1,0 +1,20 @@
+---
+- name: install key (apt)
+  become: yes
+  apt_key:
+    url: 'https://updates.signal.org/desktop/apt/keys.asc'
+    keyring: '/etc/apt/trusted.gpg.d/signal-desktop-keyring.gpg'
+    state: present
+
+- name: install signal-desktop repo (apt)
+  become: yes
+  apt_repository:
+    repo: 'deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main'
+    filename: signal-desktop
+    state: present
+
+- name: install signal-desktop (apt)
+  become: yes
+  apt:
+    name: "signal-desktop"
+    state: present
