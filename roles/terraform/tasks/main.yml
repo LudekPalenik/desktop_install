@@ -1,0 +1,28 @@
+---
+- name: install dependencies (apt)
+  become: yes
+  apt:
+    name:
+      - gnupg
+      - software-properties-common
+    state: present
+
+- name: install key (apt)
+  become: yes
+  apt_key:
+    url: 'https://apt.releases.hashicorp.com/gpg'
+    keyring: '/etc/apt/trusted.gpg.d/hashicorp-archive-keyring.gpg'
+    state: present
+
+- name: install Hashicorp terraform repo (apt)
+  become: yes
+  apt_repository:
+    repo: 'deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com jammy main'
+    filename: terraform
+    state: present
+
+- name: install terraform (apt)
+  become: yes
+  apt:
+    name: "terraform"
+    state: present

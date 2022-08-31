@@ -6,6 +6,7 @@
     - google-chrome
     - signal-desktop
     - spotify
+    - terraform
   tasks:
   - name: install packages
     package:
