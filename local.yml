@@ -2,7 +2,7 @@
 - hosts: localhost
   connection: local
   become: true
-  roles: 
+  roles:
     - spotify
   tasks:
   - name: install packages
