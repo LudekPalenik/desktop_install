@@ -3,6 +3,7 @@
   connection: local
   become: true
   roles:
+    - google-chrome
     - spotify
   tasks:
   - name: install packages
